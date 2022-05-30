@@ -493,11 +493,183 @@ if __name__ == "__main__":
             self.__cilindrada = cilindrada
 
         def __str__(self):
-            return Bicicleta.__str__(self) + "\nVelocidad: {}\nCilindrada: {}".format(self.__velocidad,
+            return Bicicleta.__str__(self)+ "\nVelocidad: {}\nCilindrada: {}".format(self.__velocidad,
                                                                                       self.__cilindrada)
+
+
+    def catalogar(lista):
+         print("----------------------")
+         for x in lista:
+             print(x)
+             print(type(x).__name__)
+
+
     motocicleta1 = Motocicleta('granate', 'viejas','A',300, 2000)
     print(motocicleta1)
     lista = [motocicleta1, bicicleta1, coche1]
-    print(lista)
+    print("nueva lista")
+    print(lista[0])
+    catalogar(lista)
+
+    #ejercicio 8, m3
+
+    class Vehiculo():
+        # atributos privados de clase "__"
+
+        __color = None
+        __ruedas = None
+
+        # constructor Clase Vehiculo.
+
+        def __init__(self, color, ruedas):
+            self.__color = color
+            self.__ruedas = ruedas
+
+        # Getters y setters "@property, variable.setter"
+
+        @property
+        def color(self):
+            return self.__color
+
+        @color.setter
+        def color(self, color):
+            self.__color = color
+
+        @property
+        def ruedas(self):
+            return self.__ruedas
+
+        @ruedas.setter
+        def ruedas(self, ruedas):
+            self.__ruedas = ruedas
+
+        def __str__(self):
+            return 'Este vehículo tiene: \nColor: {} \nRuedas: {}.'.format(self.__color, self.__ruedas)
+
+
+    class Coche(Vehiculo):
+        # atributos privados de clase.
+        __velocidad = None
+        __Cilindrada = None
+
+        # constructor de clase.
+        def __init__(self, color, ruedas, velocidad, cilindrada):
+            Vehiculo.__init__(self, color, ruedas)
+            self.__velocidad = velocidad
+            self.__cilindrada = cilindrada
+
+        @property
+        def velocidad(self):
+            return self.__velocidad
+
+        @velocidad.setter
+        def velocidad(self, velocidad):
+            self.__velocidad = velocidad
+
+        @property
+        def cilindrada(self):
+            return self.__cilindrada
+
+        @cilindrada.setter
+        def cilindrada(self, cilindrada):
+            self.__cilindrada = cilindrada
+
+        def __str__(self):
+            return Vehiculo.__str__(self) + "\nVelocidad: {}\nCilindrada: {}".format(self.__velocidad,
+                                                                                     self.__cilindrada)
+
+
+    class Camioneta(Coche):
+        __carga = None
+
+        def __init__(self, color, ruedas, velocidad, cilindrada, carga):
+            Coche.__init__(self, color, ruedas, velocidad, cilindrada)
+            self.__carga = carga
+
+        @property
+        def carga(self):
+            return self.__carga
+
+        @carga.setter
+        def carga(self, carga):
+            self.__carga = carga
+
+        def __str__(self):
+            return Coche.__str__(self) + "\nCarga: {}".format(self.__carga)
+
+
+    camioneta1 = Camioneta('verdes', 'nuevas', 200, 1000, 150)
+    print(camioneta1)
+
+
+    class Bicicleta(Vehiculo):
+        __tipo = None
+
+        def __init__(self, color, ruedas, tipo):
+            Vehiculo.__init__(self, color, ruedas)
+            self.__tipo = tipo
+
+        @property
+        def tipo(self):
+            return self.__tipo
+
+        @tipo.setter
+        def tipo(self, tipo):
+            self.__tipo = tipo
+
+        def __str__(self):
+            return Vehiculo.__str__(self) + "\nTipo: {}".format(self.__tipo)
+
+
+    bicicleta1 = Bicicleta('amarilla', 'nuevas', 'montaña')
+    print(bicicleta1)
+
+
+    class Motocicleta(Bicicleta):
+        __velocidad = None
+        __cilindrada = None
+
+        def __init__(self, color, ruedas, tipo, velocidad, cilindrada):
+            Bicicleta.__init__(self, color, ruedas, tipo)
+            self.__velocidad = velocidad
+            self.__cilindrada = cilindrada
+
+        @property
+        def velocidad(self):
+            return self.__velocidad
+
+        @velocidad.setter
+        def velocidad(self, velocidad):
+            self.__velocidad = velocidad
+
+        @property
+        def cilindrada(self):
+            return self.__cilindrada
+
+        @cilindrada.setter
+        def cilindrada(self, cilindrada):
+            self.__cilindrada = cilindrada
+
+        def __str__(self):
+            return Bicicleta.__str__(self)+ "\nVelocidad: {}\nCilindrada: {}".format(self.__velocidad,
+                                                                                      self.__cilindrada)
+
+
+    def catalogar(lista):
+         print("----------------------")
+         for x in lista:
+             print(x)
+             print(type(x).__name__)
+
+
+    motocicleta1 = Motocicleta('granate', 'viejas','A',300, 2000)
+    print(motocicleta1)
+    lista = [motocicleta1, bicicleta1, coche1]
+    print("nueva lista")
+    print(lista[0])
+    catalogar(lista)
+
+
+
 
 
